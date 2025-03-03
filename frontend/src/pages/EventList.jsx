@@ -24,6 +24,8 @@ const EventList = () => {
 
   useEffect(() => {
     const today = new Date();
+    today.setHours(0, 0, 0, 0); // Normalize to start of the day
+
     let filtered = [...events];
 
     if (filter === "past") {
@@ -52,10 +54,19 @@ const EventList = () => {
     }
   };
 
+  // Function to check if an event is happening today
+  const isToday = (date) => {
+    const eventDate = new Date(date);
+    const today = new Date();
+    return (
+      eventDate.getDate() === today.getDate() &&
+      eventDate.getMonth() === today.getMonth() &&
+      eventDate.getFullYear() === today.getFullYear()
+    );
+  };
+
   return (
     <div className="event-container">
-      
-
       {/* Top Center Add Event Button */}
       <div className="add-event-top">
         <Link to="/create" className="btn btn-primary">
@@ -65,9 +76,15 @@ const EventList = () => {
 
       {/* Filter Options */}
       <div className="filter-container">
-        <button className={filter === "all" ? "active" : ""} onClick={() => setFilter("all")}>All Events</button>
-        <button className={filter === "past" ? "active" : ""} onClick={() => setFilter("past")}>Past Events</button>
-        <button className={filter === "future" ? "active" : ""} onClick={() => setFilter("future")}>Future Events</button>
+        <button className={filter === "all" ? "active" : ""} onClick={() => setFilter("all")}>
+          All Events
+        </button>
+        <button className={filter === "past" ? "active" : ""} onClick={() => setFilter("past")}>
+          Past Events
+        </button>
+        <button className={filter === "future" ? "active" : ""} onClick={() => setFilter("future")}>
+          Future Events
+        </button>
       </div>
 
       {/* Floating Bottom Right Add Event Button */}
@@ -83,7 +100,10 @@ const EventList = () => {
           </div>
         ) : (
           filteredEvents.map(event => (
-            <div key={event._id} className="event-card">
+            <div
+              key={event._id}
+              className={`event-card ${isToday(event.date) ? "event-today" : ""}`}
+            >
               <h2>{event.title}</h2>
               <p>{event.description}</p>
               <p className="event-meta">
@@ -105,11 +125,7 @@ const EventList = () => {
       </div>
 
       {/* Delete Confirmation Modal */}
-      <CustomModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        onConfirm={deleteEvent}
-      />
+      <CustomModal isOpen={modalOpen} onClose={() => setModalOpen(false)} onConfirm={deleteEvent} />
     </div>
   );
 };
