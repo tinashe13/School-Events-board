@@ -1,3 +1,46 @@
+
+Skip to content
+Navigation Menu
+
+    tinashe13
+
+    School-Events-board
+
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+
+    Settings
+
+Comparing changes
+Choose two branches to see what’s changed or to start a new pull request. If you need to, you can also
+or learn more about diff comparisons.
+...
+
+1 commit
+1 file changed
+
+    1 contributor
+
+Commits on Mar 2, 2025
+
+    readme :)
+    @tinashe13
+    tinashe13 committed Mar 2, 2025
+
+Showing
+with 102 additions and 1 deletion.
+103 changes: 102 additions & 1 deletion 103
+README.md
+Copied!
+Original file line number 	Diff line number 	Diff line change
+@@ -1 +1,102 @@
+# School-Events-board
 # 🏆 Event Manager App
 
 A event management application built with **Vite + React** for the frontend and **Node.js + Express** for the backend. The app allows users to **Create, Read, Update, and Delete (CRUD) events** with a sleek, responsive UI. This app was made on a time crunch for my final project for Applied restful APIs & intergration, so please don't judge
@@ -100,3 +143,15 @@ Update `src/index.css` to customize:
 Made with ❤️ by **Tinashe Dzemwa**  
 Feel free to ⭐ this repo and contribute!
 
+Footer
+© 2025 GitHub, Inc.
+Footer navigation
+
+    Terms
+    Privacy
+    Security
+    Status
+    Docs
+    Contact
+
+Copied!
