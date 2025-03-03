@@ -308,7 +308,7 @@
 /* Apply the existing button styles */
 /* Set the background image with transparency */
 body {
-  background: url("../public/cuw.jpg") no-repeat center center fixed;
+  background: url("./cuw.jpg") no-repeat center center fixed;
   background-size: cover;
   position: relative;
 }
@@ -324,3 +324,27 @@ body::before {
   background: rgba(0, 0, 0, 0.6); /* 60% transparency */
   z-index: -1;
 }
+.no-events-card {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  border: 2px solid #ff6b6b;
+  border-radius: 12px;
+  padding: 25px;
+  text-align: center;
+  max-width: 450px;
+  margin: 40px auto;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease-in-out;
+}
+
+.no-events-card:hover {
+  transform: scale(1.05);
+}
+
+.no-events-text {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+}
+

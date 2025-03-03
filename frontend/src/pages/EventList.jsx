@@ -46,26 +46,33 @@ const EventList = () => {
       </Link>
 
       <div className="event-list">
-        {events.map(event => (
-          <div key={event._id} className="event-card">
-            <h2>{event.title}</h2>
-            <p>{event.description}</p>
-            <p className="event-meta">
-              📅 {new Date(event.date).toDateString()} | 📍 {event.location}
-            </p>
-            <p className="event-meta">🧑‍💼 Organizer: {event.organizer}</p>
+  {events.length === 0 ? (
+    <div className="no-events-card">
+      <p>Oops, seems there are no events scheduled</p>
+    </div>
+  ) : (
+    events.map(event => (
+      <div key={event._id} className="event-card">
+        <h2>{event.title}</h2>
+        <p>{event.description}</p>
+        <p className="event-meta">
+          📅 {new Date(event.date).toDateString()} | 📍 {event.location}
+        </p>
+        <p className="event-meta">🧑‍💼 Organizer: {event.organizer}</p>
 
-            <div className="event-buttons">
-              <Link to={`/update/${event._id}`} className="btn btn-secondary">
-                <i className="fas fa-edit"></i> Edit
-              </Link>
-              <button onClick={() => handleDeleteClick(event._id)} className="btn btn-delete">
-                <i className="fas fa-trash"></i> Delete
-              </button>
-            </div>
-          </div>
-        ))}
+        <div className="event-buttons">
+          <Link to={`/update/${event._id}`} className="btn btn-secondary">
+            <i className="fas fa-edit"></i> Edit
+          </Link>
+          <button onClick={() => handleDeleteClick(event._id)} className="btn btn-delete">
+            <i className="fas fa-trash"></i> Delete
+          </button>
+        </div>
       </div>
+    ))
+  )}
+</div>
+
 
       {/* Custom Delete Confirmation Modal */}
       <CustomModal
