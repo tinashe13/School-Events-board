@@ -17,13 +17,12 @@ dotenv.config();
 const PORT = process.env.PORT || 5000;
 const MONGOURL = process.env.MONGO_URL;
 
-mongoose.connect(MONGOURL, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    console.log("Database connection successful...");
-    app.listen(PORT, () => {
-      console.log(`Server is now running on port ${PORT}`);
-    });
+mongoose.connect(MONGOURL).then(()=>{
+  console.log("Database successful.")
+  app.listen(PORT, ()=>{
+      console.log(`Server is running on port ${PORT}`);
   })
+})
   .catch(error => console.log(error));
 
 app.use("/api/events", eventRoutes);
